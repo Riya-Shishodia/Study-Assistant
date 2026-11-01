@@ -1,0 +1,97 @@
+# 🚀 Lightweight AI Study Assistant
+
+A minimalist, high-performance, and completely client-side study assistant tailored for school and college students. The entire application runs directly in the browser using **LocalStorage**, meaning it requires no backend servers, database subscriptions, or paid API bills.
+
+---
+
+## ✨ Key Features
+
+### 🔐 1. Smart Onboarding & Dynamic Avatars
+* **Zero-Server Auth:** Simple account creation and profile management powered entirely by local storage.
+* **Gender-Responsive Avatars:** Dynamic allocation of unique, animated SVG characters based on user profile choice (Boy/Girl) that update across the entire app workspace.
+
+### 💬 2. ChatGPT-Style Chatbot
+* **Threaded Layout:** Side-panel navigation allowing students to manage, switch, or clear distinct conversation histories.
+* **Plain English Explanations:** Core learning model optimized to bypass heavy technical jargon, delivering direct, analogy-rich definitions suited for clear student comprehension.
+* **Persistent Logs:** Complete chat transcripts save automatically across browser reloads.
+
+### 📝 3. Advanced Test Centre
+* **Custom Parameters:** Configurable test setups allowing users to specify Syllabus Topic, Difficulty Level (Easy, Medium, Hard), Question Count, and a Countdown Timer.
+* **Strict Topic Mapping:** Patched routing engine ensuring questions strictly align with the chosen topic (e.g., Computer Science filters out unrelated subjects like Thermodynamics).
+* **Mixed Testing:** Fully supports standard Multiple Choice Questions (MCQs) along with structural Short-Answer and Calculative input fields.
+
+### 🛡️ 4. Active Anti-Cheating Engine
+* **Focus Tracking:** Real-time listeners monitor the Page Visibility API and browser window `blur` events.
+* **Tab-Switch Penalty:** If a student switches tabs, opens a new window, or minimizes the application during a test, the interface triggers an immediate infraction warning modal and cancels the test session.
+
+### 📊 5. Performance Analytics & Interactive Self-Check
+* **Auto-Graded MCQs:** Instant data tracking reporting exact scores, final accuracy margins, and question breakdowns.
+* **Interactive Short-Answer Grading:** Displays user-submitted input side-by-side with an official step-by-step solution key, letting students manually self-verify and adjust their score metrics.
+* **Historical Trends:** A dedicated history dashboard mapping test progress and performance curves over time.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend Framework:** React 18+ (Vite)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS (Custom White & Blue Palette)
+* **Linting & Speed:** Powered by [Oxlint](https://oxc.rs) for fast dev performance
+* **State & Persistence:** Web Storage API (LocalStorage)
+
+---
+
+## ⚡ Getting Started (Local Development)
+
+Follow these quick steps to launch the project locally on your machine:
+
+### Prerequisites
+Ensure you have [Node.js](https://nodejs.org) installed.
+
+### 1. Clone & Navigate
+```bash
+git clone <your-repository-url>
+cd study-assistant
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Launch Development Server
+```bash
+npm run dev
+```
+Open the `http://localhost:...` address shown in your terminal to view the application.
+
+---
+
+## 🔑 AI Engine Configuration
+
+The project utilizes the **Google Gemini API Free Tier** (15 requests per minute, completely free of charge). 
+
+To insert your permanent key:
+1. Open the file where the API client is configured (e.g., `src/api/gemini.ts` or `src/App.tsx`).
+2. Paste your key directly into the configuration constant:
+   ```typescript
+   const GEMINI_API_KEY = "YOUR_FREE_GEMINI_API_KEY_HERE";
+   ```
+*If no key is configured or you hit the rate limit, the application will automatically and silently fall back to its internal, offline hardcoded multi-subject question database.*
+
+---
+
+## 🚀 Free Hosting & Deployment
+
+Because the application contains no server-side files or external databases, it can be hosted 100% for free:
+
+### Option A: Vercel (Recommended)
+1. Push your code repository to GitHub.
+2. Sign in to [Vercel](https://vercel.com) via GitHub.
+3. Click **Add New Project**, import your repository, and click **Deploy**.
+
+### Option B: Netlify
+1. Run `npm run build` locally to generate a production `dist` folder.
+2. Drag and drop the `dist` folder directly into the [Netlify Drop](https://netlify.com) dashboard.
+
+Author: Riya Shishodia
